@@ -112,10 +112,11 @@ function fastifyMiddleware(request, reply) {
         utils.debugLog('[fastify] - added runner');
 
         // Inject trace functions
-        const { label, setError, getTraceUrl } = tracer;
+        const { label, setError, setWarning, getTraceUrl } = tracer;
         request.epsagon = {
             label,
             setError,
+            setWarning,
             getTraceUrl,
         };
         traceContext.setMainReference(false);
